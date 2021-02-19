@@ -113,7 +113,7 @@ mmx-backapi-config.h: mmx-backapi-config.h.in
 	    -e "s/@MMXBA_MAX_NUMBER_OF_KEY_PARAMS@/${CONFIG_MMXBA_MAX_NUMBER_OF_KEY_PARAMS}/" mmx-backapi-config.h.in > mmx-backapi-config.h
 	
 $(TARGET_SO): $(OBJECTS) 
-	$(CC) $(OBJECTS) -o $@ $(LDFLAGS)
+	$(CC) -Wl,-soname,$@ $(OBJECTS) -o $@ $(LDFLAGS)
 
 install:
 	install -d $(DESTDIR)$(PREFIX)/include
