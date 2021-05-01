@@ -68,31 +68,31 @@
 #
 ################################################################################
 
-ifeq ($(PREFIX),)
+ifeq ($(strip $(PREFIX)),)
     PREFIX := /usr
 endif
 
-override CC ?= gcc
+CC ?= gcc
 override CFLAGS += -c -fPIC -Wall -std=gnu99
 override LDFLAGS += -shared
 
 # "Max string lenght (param, object names)"
-override CONFIG_MMXBA_MAX_STR_LEN ?= 128
+CONFIG_MMXBA_MAX_STR_LEN ?= 128
 
 # "Max number of GET params"
-override CONFIG_MMXBA_MAX_NUMBER_OF_GET_PARAMS ?= 30
+CONFIG_MMXBA_MAX_NUMBER_OF_GET_PARAMS ?= 30
 
 # "Max number of SET params"
-override CONFIG_MMXBA_MAX_NUMBER_OF_SET_PARAMS ?= 30
+CONFIG_MMXBA_MAX_NUMBER_OF_SET_PARAMS ?= 30
 
 # "Max number of GETALL params"
-override CONFIG_MMXBA_MAX_NUMBER_OF_GETALL_PARAMS ?= 192
+CONFIG_MMXBA_MAX_NUMBER_OF_GETALL_PARAMS ?= 192
 
 # "Max number of added objects"
-override CONFIG_MMXBA_MAX_NUMBER_OF_ADDED_INSTANCES ?= 1
+CONFIG_MMXBA_MAX_NUMBER_OF_ADDED_INSTANCES ?= 1
 
 # "Max number of key params in request to backend"
-override CONFIG_MMXBA_MAX_NUMBER_OF_KEY_PARAMS ?= 4
+CONFIG_MMXBA_MAX_NUMBER_OF_KEY_PARAMS ?= 4
 
 
 SOURCES=$(wildcard *.c)
